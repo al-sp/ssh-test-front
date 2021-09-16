@@ -1,0 +1,12 @@
+#app {
+    height: 100vh;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+th {
+    text-align: center;
+}
+
+.table-sm td, .table-sm th {
+    padding: 4px;
+}

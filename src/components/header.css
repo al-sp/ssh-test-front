@@ -1,0 +1,26 @@
+.icon-button {
+    margin-right: 10px;
+    font-size: 1rem;
+    padding: 1px;
+    height: 30px;
+    width: 30px;
+    transition: ease all 150ms;
+}
+
+.icon-button:active {
+    transform: rotate(45deg);
+}
+
+.menu-button {
+    margin-right: 16px;
+    cursor: pointer;
+    transition: ease all 150ms;
+}
+
+.menu-button:active {
+    transform: rotate(45deg);
+}
+
+.menu-icon {
+    font-size: 1.2rem;
+}

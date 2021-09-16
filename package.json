@@ -1,0 +1,90 @@
+{
+  "name": "electron-ssh",
+  "version": "1.0.0",
+  "description": "Electron SSH client",
+  "main": "./main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"npm run server-start\" \"wait-on http://localhost:3000 && npm run electron-dev\"",
+    "react-build": "react-scripts build",
+    "react-start": "react-scripts start",
+    "server-build": "babel server --out-dir build-server",
+    "server-start": "nodemon --watch server --exec babel-node server/server.js",
+    "electron-dev": "node scripts/dev.js scripts/start.js",
+    "preelectron-pack": "npm run react-build && npm run server-build",
+    "electron-pack": "electron-builder -c.extraMetadata.main='./main.js'"
+  },
+  "author": {
+    "name": "alsp",
+    "email": "none@none"
+  },
+  "optionalDependencies": {
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "concurrently": "^6.1.0",
+    "customize-cra": "^1.0.0",
+    "electron": "^12.0.7",
+    "electron-builder": "^22.10.5",
+    "electron-packager": "^15.2.0",
+    "eslint": "^7.26.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.23.2",
+    "wait-on": "^5.3.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "app-module-path": "^2.2.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
+    "cors": "^2.8.5",
+    "electron-is-dev": "^2.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "nodemon": "^2.0.7",
+    "piping": "^1.0.0-rc.4",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
+    "react-dom": "^17.0.2",
+    "ssh2": "^0.8.9",
+    "react-scripts": "4.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "productName": "electronssh",
+    "appId": "electronssh.app",
+    "files": [
+      "build/**/**/*",
+      "build-server/**/**/*",
+      "node_modules/**/*",
+      "./main.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
